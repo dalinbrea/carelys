@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por si alguien me escucha | Carelys Vargas</title>
+    <meta name="description" content="Una historia sobre la resistencia silenciosa, la ternura que sobrevive en el caos y la fuerza invisible que nos une. Novela de Carelys Vargas.">
+    
+    <!-- Meta Tags para Redes Sociales (WhatsApp, Telegram, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.carelysvargas.com/">
+    <meta property="og:title" content="Por si alguien me escucha | Carelys Vargas">
+    <meta property="og:description" content="Una historia sobre la resistencia silenciosa, la ternura que sobrevive en el caos y la fuerza invisible que nos une.">
+    <meta property="og:image" content="https://m.media-amazon.com/images/I/71PEVO42jDL._SL1500_.jpg">
+
+    <!-- Meta Tags para Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.carelysvargas.com/">
+    <meta property="twitter:title" content="Por si alguien me escucha | Carelys Vargas">
+    <meta property="twitter:description" content="Una historia sobre la resistencia silenciosa, la ternura que sobrevive en el caos y la fuerza invisible que nos une.">
+    <meta property="twitter:image" content="https://m.media-amazon.com/images/I/71PEVO42jDL._SL1500_.jpg">
+
+    <!-- Fuentes Google: Playfair Display (Elegancia/Emoción) y Montserrat (Modernidad/Legibilidad) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Fuente Mono para elementos del sistema -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Iconos: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (Framework de diseño) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración personalizada de colores -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'abismo': '#0F172A',      /* Fondo principal */
+                        'dorado': '#D4AF37',      /* Color primario / Esperanza */
+                        'dorado-light': '#F3C969',
+                        'cian-electrico': '#00D4FF', /* Acentos / Portal */
+                        'piedra': '#94A3B8',      /* Textos secundarios */
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'portal-gradient': 'radial-gradient(circle at center, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 1) 70%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para efectos especiales */
+        body {
+            background-color: #05080f; /* Un tono más oscuro que el abismo para profundidad */
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Efecto de brillo dorado en botones */
+        .btn-gold {
+            background: linear-gradient(45deg, #D4AF37, #B4941F);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: #00D4FF;
+            color: #00D4FF;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Animación de entrada suave (Fade In) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Decoración de texto con gradiente */
+        .text-gradient {
+            background: linear-gradient(to right, #D4AF37, #F3C969);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Efecto de partículas/estrellas sutiles en el fondo */
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Citas estilizadas */
+        .quote-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-left: 3px solid #D4AF37;
+            backdrop-filter: blur(10px);
+        }
+
+        /* --- CLASES 3D FLIP --- */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; /* Safari */
+        }
+        
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        
+        /* Contenedor del flipper */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        /* Activador del flip al hover */
+        .group:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        /* Clases para revelar texto en móvil */
+        .secret-revealed {
+            filter: blur(0) !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Fondo de estrellas sutil -->
+    <div class="stars"></div>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-abismo/90 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <span class="font-serif text-xl md:text-2xl font-bold text-dorado tracking-wider">Carelys Vargas</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#sinopsis" class="hover:text-dorado transition-colors px-3 py-2 rounded-md text-sm font-medium">La Historia</a>
+                        <a href="#ecos" class="hover:text-dorado transition-colors px-3 py-2 rounded-md text-sm font-medium">Ecos</a>
+                        <a href="#saga" class="hover:text-dorado transition-colors px-3 py-2 rounded-md text-sm font-medium">La Saga</a>
+                         <a href="#aurea" class="hover:text-dorado transition-colors px-3 py-2 rounded-md text-sm font-medium">AUREA</a>
+                        <a href="#autora" class="hover:text-dorado transition-colors px-3 py-2 rounded-md text-sm font-medium">Autora</a>
+                        <a href="https://a.co/d/2Zwznwr" target="_blank" class="bg-dorado/10 border border-dorado text-dorado hover:bg-dorado hover:text-abismo px-4 py-2 rounded-full text-sm font-bold transition-all">
+                            Comprar Libro
+                        </a>
+                    </div>
+                </div>
+                <!-- Menú móvil botón -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú móvil -->
+        <div class="hidden md:hidden bg-abismo border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#sinopsis" class="text-gray-300 hover:text-dorado block px-3 py-2 rounded-md text-base font-medium">La Historia</a>
+                <a href="#ecos" class="text-gray-300 hover:text-dorado block px-3 py-2 rounded-md text-base font-medium">Ecos</a>
+                <a href="#saga" class="text-gray-300 hover:text-dorado block px-3 py-2 rounded-md text-base font-medium">La Saga</a>
+                 <a href="#aurea" class="text-gray-300 hover:text-dorado block px-3 py-2 rounded-md text-base font-medium">AUREA</a>
+                <a href="#autora" class="text-gray-300 hover:text-dorado block px-3 py-2 rounded-md text-base font-medium">Autora</a>
+                <a href="https://a.co/d/2Zwznwr" class="text-dorado font-bold block px-3 py-2">Comprar en Amazon</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10">
+        <!-- Efecto de fondo abstracto tipo portal -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cian-electrico/10 rounded-full blur-[120px]"></div>
+            <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-transparent via-abismo/80 to-abismo"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            
+            <!-- Texto Hero -->
+            <div class="flex-1 text-center md:text-left space-y-6 reveal active">
+                <div class="inline-block px-3 py-1 border border-cian-electrico/30 rounded-full bg-cian-electrico/5 mb-2">
+                    <span class="text-cian-electrico text-xs font-bold tracking-widest uppercase">Disponible ahora</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight">
+                    Por si alguien <br>
+                    <span class="text-gradient italic">me escucha</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-piedra max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Cruzar el portal hacia lo desconocido o cerrarlo para siempre. Una historia sobre la resistencia silenciosa y la ternura en medio del caos.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                    <a href="https://a.co/d/2Zwznwr" target="_blank" class="btn-gold text-abismo font-bold py-4 px-8 rounded text-center items-center justify-center flex gap-2">
+                        <i class="fab fa-amazon"></i> Comprar en Amazon
+                    </a>
+                    <a href="https://read.amazon.com/sample/B0FLF6CT9F?clientId=share" target="_blank" class="btn-outline text-white py-4 px-8 rounded text-center items-center justify-center flex gap-2">
+                        <i class="fas fa-book-open"></i> Leer primer capítulo
+                    </a>
+                </div>
+
+                <div class="pt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-piedra">
+                    <span><i class="fas fa-star text-dorado"></i> Fantasía</span>
+                    <span>•</span>
+                    <span><i class="fas fa-heart text-dorado"></i> Romance</span>
+                    <span>•</span>
+                    <span><i class="fas fa-infinity text-dorado"></i> Distopía</span>
+                </div>
+            </div>
+
+            <!-- Imagen Portada (Efecto 3D Flip) -->
+            <div class="flex-1 relative flex justify-center reveal active" style="transition-delay: 0.2s;">
+                <!-- Contenedor del libro -->
+                <div class="relative w-[300px] h-[450px] group perspective-1000 cursor-pointer">
+                    <!-- Resplandor detrás del libro -->
+                    <div class="absolute -inset-4 bg-gradient-to-r from-dorado to-cian-electrico opacity-30 blur-xl group-hover:opacity-50 transition duration-500 rounded-lg"></div>
+                    
+                    <!-- Tarjeta Giratoria -->
+                    <div class="flip-card-inner shadow-2xl rounded-lg">
+                        <!-- Frente (Anverso) -->
+                        <div class="absolute inset-0 w-full h-full backface-hidden">
+                            <img src="https://m.media-amazon.com/images/I/71PEVO42jDL._SL1500_.jpg" alt="Portada Anverso" class="w-full h-full object-cover rounded-lg border border-white/10">
+                            <!-- Indicador sutil de giro -->
+                            <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm p-2 rounded-full text-white/80 text-xs flex items-center gap-2 group-hover:opacity-0 transition-opacity">
+                                <i class="fas fa-sync-alt animate-spin-slow"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Reverso (Contraportada) -->
+                        <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-abismo rounded-lg border border-dorado/30 overflow-hidden">
+                            <img src="https://m.media-amazon.com/images/I/51RteIxuOZL.jpg" alt="Contraportada" class="w-full h-full object-cover">
+                            <!-- Overlay para mejorar lectura si la imagen es oscura/compleja -->
+                            <div class="absolute inset-0 bg-black/10 hover:bg-transparent transition-colors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flecha scroll -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce text-piedra hidden md:block">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Sinopsis -->
+    <section id="sinopsis" class="py-24 bg-abismo relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <i class="fas fa-quote-left text-4xl text-dorado/30 mb-6"></i>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-8 text-white">¿Renunciarías a la última esperanza?</h2>
+            
+            <div class="prose prose-lg prose-invert mx-auto text-piedra leading-loose">
+                <p class="mb-6">
+                    En un mundo al borde del colapso, donde el tiempo y el espacio ya no son fronteras, <strong class="text-white">Elena y Sebastián</strong>, dos almas conectadas por algo más profundo que la memoria, enfrentan una elección imposible.
+                </p>
+                <p class="mb-6 font-medium text-white">
+                    "Una voz emerge entre la multitud —una que quizá no reconozcas, pero que te reconoce a ti— para invitarte a quedarte, a luchar, y a recordar."
+                </p>
+                <p>
+                    Esta no es solo una historia sobre el fin del mundo. Es una historia sobre lo que viene después. Sobre la fuerza invisible que une a quienes aún creen en algo más grande que ellos mismos. Porque aún es posible cambiar el destino… <span class="text-dorado italic">por si alguien, todavía, está escuchando.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enigma Página 213 -->
+    <section class="py-20 bg-black relative overflow-hidden flex items-center justify-center border-t border-white/5">
+        <!-- Efecto de luz ambiental sutil -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.05)_0%,_rgba(0,0,0,0)_70%)]"></div>
+        
+        <div class="relative z-10 text-center px-4 reveal">
+            <div class="mb-6">
+                <i class="fas fa-key text-dorado/30 text-2xl animate-pulse"></i>
+            </div>
+            
+            <h3 class="font-serif text-3xl md:text-5xl text-white mb-6 tracking-wide">
+                Página <span class="text-transparent bg-clip-text bg-gradient-to-b from-dorado to-yellow-900">213</span>
+            </h3>
+            
+            <!-- Tap/Click interaction added for mobile -->
+            <div class="group cursor-help relative inline-block max-w-lg" onclick="toggleSecret(this)">
+                <p class="text-xl md:text-2xl text-gray-400 font-serif italic mb-2 transition-all duration-700">
+                    "Hay una forma de conectarnos..."
+                </p>
+                <div class="relative">
+                    <!-- Instrucción para móviles (solo visible si no hay hover y no está revelado) -->
+                    <span class="md:hidden text-[10px] text-gray-600 block mb-2">(Toca para revelar)</span>
+                    
+                    <!-- El texto "secreto" -->
+                    <p class="secret-text text-sm md:text-base text-cian-electrico font-sans tracking-[0.2em] uppercase opacity-50 blur-[3px] group-hover:blur-none group-hover:opacity-100 transition-all duration-1000 ease-in-out mt-4 select-none">
+                        Descubre el vínculo oculto
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecos del Libro (Quotes) -->
+    <section id="ecos" class="py-24 bg-black/30 relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-3xl font-bold text-dorado mb-2">Ecos de la Memoria</h2>
+                <p class="text-piedra">Fragmentos recuperados del caos</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="quote-card p-8 rounded-r-lg hover:bg-white/5 transition duration-300 reveal">
+                    <div class="mb-4 text-cian-electrico text-sm tracking-widest uppercase font-bold">La Cooperación</div>
+                    <p class="font-serif italic text-lg text-gray-200 mb-4">
+                        "Lo más importante, era que debían lograr un mundo basado en la cooperación... los órganos de tu cuerpo no compiten, cooperan para que todo funcione, esa es la clave..."
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="quote-card p-8 rounded-r-lg hover:bg-white/5 transition duration-300 reveal" style="transition-delay: 0.2s;">
+                    <div class="mb-4 text-cian-electrico text-sm tracking-widest uppercase font-bold">El Alma Conectada</div>
+                    <p class="font-serif italic text-lg text-gray-200 mb-4">
+                        "—Elena, puedes pensar que estás sola, pero no lo estás, ninguno en el universo está solo, tienes a un montón de almas conectadas energéticamente..."
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="quote-card p-8 rounded-r-lg hover:bg-white/5 transition duration-300 reveal" style="transition-delay: 0.4s;">
+                    <div class="mb-4 text-cian-electrico text-sm tracking-widest uppercase font-bold">El Recuerdo</div>
+                    <p class="font-serif italic text-lg text-gray-200 mb-4">
+                        "Por primera vez en mucho tiempo al cerrar sus ojos... una sonrisa se dibujó en su rostro... tenía una sensación de excitación y emoción."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA SAGA: Próximos Libros -->
+    <section id="saga" class="py-24 bg-abismo relative overflow-hidden">
+        <!-- Background element -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-dorado/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-3xl font-bold text-dorado mb-2">El Destino Continúa</h2>
+                <p class="text-piedra">La historia no termina aquí. Próximos lanzamientos de la saga.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Book 2: Por si alguien me ve -->
+                <div class="group relative reveal">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-dorado/20 to-cian-electrico/20 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative bg-black/40 border border-white/10 p-8 rounded-lg text-center hover:transform hover:scale-[1.02] transition-all duration-300 h-full flex flex-col items-center">
+                        <div class="h-64 w-44 mx-auto mb-6 bg-gray-800 rounded flex items-center justify-center border border-white/5 shadow-inner relative overflow-hidden">
+                            <i class="fas fa-eye text-5xl text-gray-600 group-hover:text-dorado transition-colors duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-abismo via-transparent to-transparent opacity-80"></div>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-dorado transition-colors">Por si alguien me ve</h3>
+                        <p class="text-cian-electrico text-xs uppercase tracking-widest font-bold mb-4">Libro II • Próximamente</p>
+                        <p class="text-gray-400 text-sm italic mt-auto">
+                            "Cuando la invisibilidad deja de ser una opción, la verdad sale a la luz."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Book 3: Por si alguien me siente -->
+                <div class="group relative reveal" style="transition-delay: 0.2s;">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cian-electrico/20 to-purple-500/20 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative bg-black/40 border border-white/10 p-8 rounded-lg text-center hover:transform hover:scale-[1.02] transition-all duration-300 h-full flex flex-col items-center">
+                        <div class="h-64 w-44 mx-auto mb-6 bg-gray-800 rounded flex items-center justify-center border border-white/5 shadow-inner relative overflow-hidden">
+                            <i class="fas fa-fingerprint text-5xl text-gray-600 group-hover:text-cian-electrico transition-colors duration-500"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-abismo via-transparent to-transparent opacity-80"></div>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2 group-hover:text-cian-electrico transition-colors">Por si alguien me siente</h3>
+                        <p class="text-cian-electrico text-xs uppercase tracking-widest font-bold mb-4">Libro III • En Desarrollo</p>
+                        <p class="text-gray-400 text-sm italic mt-auto">
+                            "Hay conexiones que trascienden la piel y el tiempo."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN AUREA: El Acertijo -->
+    <section id="aurea" class="py-24 bg-black relative border-t border-dorado/20 overflow-hidden">
+        <!-- Elementos decorativos de fondo (Espiral Áurea abstracta) -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-5 pointer-events-none">
+             <div class="absolute inset-0 border border-dorado rounded-full animate-[spin_60s_linear_infinite]"></div>
+             <div class="absolute inset-[10%] border border-dorado rounded-full animate-[spin_50s_linear_infinite_reverse]"></div>
+             <div class="absolute inset-[25%] border border-dorado rounded-full animate-[spin_40s_linear_infinite]"></div>
+             <div class="absolute inset-[45%] border border-dorado rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
+        </div>
+
+        <div class="max-w-2xl mx-auto px-4 relative z-10 text-center reveal">
+            <div class="mb-6 inline-block">
+                <!-- Logo Aurea abstracto -->
+                <div class="w-16 h-16 border-2 border-dorado rounded-full flex items-center justify-center mx-auto mb-4 relative">
+                    <span class="font-serif text-2xl text-dorado font-bold">A</span>
+                    <div class="absolute top-0 right-0 w-3 h-3 bg-cian-electrico rounded-full animate-pulse"></div>
+                </div>
+                <h2 class="font-serif text-3xl font-bold text-white tracking-[0.2em] uppercase">AUREA</h2>
+                <p class="text-xs text-dorado mt-1 tracking-widest uppercase">Arquitectura del Destino</p>
+            </div>
+
+            <div class="bg-abismo/80 border border-dorado/30 p-8 rounded-lg backdrop-blur-md shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+                <p class="text-gray-300 font-mono mb-6 text-sm md:text-base">
+                    "El orden nace del caos. La secuencia perfecta guía nuestra evolución.<br>
+                    <span class="text-dorado">1, 1, 2, 3, 5...</span><br>
+                    ¿Qué sigue para completar el diseño?"
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <!-- Text-base added for iOS zoom prevention -->
+                    <input type="text" id="aurea-input" placeholder="Introduce la clave..." class="bg-black/50 border border-gray-600 text-dorado text-center px-4 py-2 rounded focus:outline-none focus:border-dorado transition-colors w-full sm:w-48 font-mono placeholder-gray-700 text-base">
+                    <button onclick="checkAurea()" class="bg-dorado hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded transition-all hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] uppercase text-sm tracking-wider">
+                        Acceder
+                    </button>
+                </div>
+
+                <div id="aurea-message" class="mt-8 hidden flex flex-col items-center animate-pulse">
+                    <p class="text-cian-electrico font-mono text-sm border-l-2 border-cian-electrico pl-4 text-left mb-6 w-full">
+                        > ACCESO CONCEDIDO<br>
+                        "La proporción divina está en todos nosotros, Elena. No lo olvides."
+                    </p>
+                    
+                    <!-- Imagen de la secuencia de Fibonacci -->
+                    <div class="relative group mb-6 w-full max-w-xs">
+                        <div class="absolute -inset-1 bg-dorado/20 rounded-lg blur opacity-75"></div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Fibonacci_spiral_34.svg/512px-Fibonacci_spiral_34.svg.png" 
+                             alt="Secuencia de Fibonacci" 
+                             class="relative w-full rounded border border-dorado/50 shadow-2xl p-2 bg-black/50 filter sepia brightness-90 contrast-125">
+                    </div>
+
+                    <!-- Botón de Descarga (RECOMPENSA) -->
+                    <a href="https://drive.google.com/uc?id=1susKpdOCmfRqfJvsWZ5yjWpWZIyEMnKj&export=download" class="inline-flex items-center gap-2 bg-transparent border border-cian-electrico text-cian-electrico hover:bg-cian-electrico/10 font-mono text-xs md:text-sm py-3 px-6 rounded transition-all duration-300 shadow-[0_0_10px_rgba(0,212,255,0.2)]">
+                        <i class="fas fa-download"></i> DESCARGAR FONDO EXCLUSIVO
+                    </a>
+                </div>
+
+                <div id="aurea-error" class="mt-6 hidden">
+                    <p class="text-red-500 font-mono text-xs">
+                        > ERROR DE SECUENCIA. EL CAOS PERSISTE. <br> (Pista: Suma los dos anteriores)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA WhatsApp (Comunidad) -->
+    <section class="py-20 relative overflow-hidden">
+        <!-- Fondo degradado especial -->
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/40 to-abismo z-0"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between bg-white/5 p-10 rounded-2xl border border-white/10 backdrop-blur-sm reveal">
+            <div class="mb-6 md:mb-0 md:pr-8">
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-2">Únete a la Resistencia</h3>
+                <p class="text-piedra mb-4">Recibe actualizaciones, secretos del libro y contenido exclusivo directamente de Carelys.</p>
+                <div class="flex items-center text-sm text-emerald-400">
+                    <i class="fas fa-circle text-[8px] mr-2 animate-pulse"></i> Canal Oficial Activo
+                </div>
+            </div>
+            <a href="https://www.whatsapp.com/channel/0029VavbXfGBvvsgvoYQeC1s" target="_blank" class="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-emerald-500/30 flex items-center gap-2 transform hover:scale-105">
+                <i class="fab fa-whatsapp text-2xl"></i> Unirme al Canal
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre la Autora -->
+    <section id="autora" class="py-24 bg-abismo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-900/50 rounded-3xl overflow-hidden border border-white/5 shadow-2xl reveal">
+                <div class="flex flex-col md:flex-row">
+                    <!-- Foto Autora -->
+                    <div class="md:w-1/3 relative h-96 md:h-auto overflow-hidden group">
+                        <img src="https://i.imgur.com/YHH8114l.jpg" alt="Carelys Vargas" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent md:bg-gradient-to-r opacity-80 group-hover:opacity-60 transition-opacity"></div>
+                    </div>
+                    
+                    <!-- Bio Autora -->
+                    <div class="md:w-2/3 p-8 md:p-12 flex flex-col justify-center">
+                        <h2 class="font-serif text-3xl font-bold text-dorado mb-4">Carelys Vargas</h2>
+                        <h3 class="text-cian-electrico text-sm uppercase tracking-wider mb-6">Contadora de historias & Soñadora</h3>
+                        
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Desde pequeña, se sintió fascinada por las complejidades del alma humana. Carelys encuentra la magia en lo cotidiano y la poesía en la melancolía.
+                        </p>
+                        <p class="text-gray-400 mb-8 text-sm">
+                            "Por si alguien me escucha" es su novela debut, un proyecto nacido de la reflexión sobre cómo nuestras historias personales nos definen y qué queda de nosotros cuando los recuerdos se desvanecen.
+                        </p>
+                        
+                        <!-- Redes Sociales -->
+                        <div class="flex space-x-6">
+                            <a href="https://www.instagram.com/carelysvargas/" target="_blank" class="text-gray-400 hover:text-[#E1306C] transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@porsialguienmeesc?_r=1&_t=ZM-92bqsl68ETD" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://x.com/carelysvargas" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h4 class="font-serif text-2xl text-white mb-6">Por si alguien me escucha</h4>
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="https://a.co/d/2Zwznwr" class="text-gray-400 hover:text-dorado text-sm uppercase tracking-widest">Comprar</a>
+                <a href="https://read.amazon.com/sample/B0FLF6CT9F?clientId=share" class="text-gray-400 hover:text-dorado text-sm uppercase tracking-widest">Leer Muestra</a>
+                <a href="https://www.whatsapp.com/channel/0029VavbXfGBvvsgvoYQeC1s" class="text-gray-400 hover:text-dorado text-sm uppercase tracking-widest">Contacto</a>
+            </div>
+            <p class="text-gray-600 text-sm">
+                &copy; 2024 Carelys Vargas. Todos los derechos reservados. <br>
+                Diseño web inspirado en el abismo y la esperanza.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script para animaciones y lógica -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Animation
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 150;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger once on load
+            revealOnScroll();
+        });
+
+        // Toggle Secret for Page 213 (Mobile)
+        function toggleSecret(element) {
+            const secretText = element.querySelector('.secret-text');
+            secretText.classList.toggle('secret-revealed');
+        }
+
+        // AUREA Puzzle Logic
+        function checkAurea() {
+            const input = document.getElementById('aurea-input').value.trim().toLowerCase();
+            const message = document.getElementById('aurea-message');
+            const error = document.getElementById('aurea-error');
+            
+            // Fibonacci Sequence: 1, 1, 2, 3, 5, [8], 13...
+            if (input === '8' || input === 'ocho' || input === 'eight') {
+                message.classList.remove('hidden');
+                error.classList.add('hidden');
+            } else {
+                message.classList.add('hidden');
+                error.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
